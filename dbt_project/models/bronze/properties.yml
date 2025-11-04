@@ -7,3 +7,36 @@ models:
   - name: bronze_sampledata_2
     config:
       materialized: table 
+  - name: bronze_customers
+    columns:
+      - name: '"customer_id"'
+        data_tests:
+          - unique
+          - not_null
+  - name: bronze_stores
+    columns:
+      - name: '"store_sk"'
+        data_tests:
+          - unique
+          - not_null
+      - name: '"country"'
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['USA','Canada','India']
+     
+  - name: bronze_product 
+    columns:
+      - name: '"product_sk"'
+        data_tests:
+          - unique
+          - not_null     
+  - name: bronze_sales
+    columns:
+      - name: '"sales_id"'
+        data_tests:
+          - unique
+          - not_null    
+      - name: '"gross_amount"'
+        data_tests:
+          - generic_negative_value_check     

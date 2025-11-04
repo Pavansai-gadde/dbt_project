@@ -1,0 +1,6 @@
+Customer_ID,Name,Email,Phone_Number,Date_of_Birth,Country,Order_Amount
+101,John Doe,john.doe@example.com,9876543210,15-05-1990,USA,250.5
+102,Jane Smith,jane.smith@example.com,1234567890,20-12-1985,UK,0
+103,NULL,invalid-email.com,987654321,2000-02-30,IND,-150
+104,Alice Johnson,alice.j@example.com,9876543211,10-07-1995,NULL,500
+105,Ken William,ken.w@example.com,999999,10-07-1995,NULL,500

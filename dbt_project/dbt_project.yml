@@ -33,4 +33,15 @@ models:
   dbt_project:
     # Config indicated by + and applies to all files under models/example/
     bronze:
+      +schema: bronze
       +materialized: table
+    silver:
+      +schema: silver
+      +materialized: table
+    gold:
+      +schema: gold
+      +materialized: table
+seeds:
+  dbt_project:
+    +schema: bronze
+    
