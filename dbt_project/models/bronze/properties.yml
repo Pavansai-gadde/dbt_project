@@ -1,0 +1,9 @@
+version: 2
+
+models:
+  - name: bronze_sampledata
+    config:
+      materialized: view
+  - name: bronze_sampledata_2
+    config:
+      materialized: table 
