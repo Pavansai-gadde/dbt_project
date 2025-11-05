@@ -1,0 +1,1 @@
+{%- set var_name="Value100" -%}{{ var_name }}: This is a Jinja variable example

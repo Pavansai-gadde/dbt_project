@@ -11,3 +11,4 @@ sources:
       - name: fact_returns
       - name: sampledata
       - name: sampledata_2
+      - name: product_items
