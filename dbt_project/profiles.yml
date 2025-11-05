@@ -23,4 +23,14 @@ dbt_project:
       type: snowflake
       user: PAVANSAI
       warehouse: COMPUTE_WH
+    prod:
+      account: BQB96235-EY_UK_PARTNER
+      database: DBT_PROJECT_PROD
+      password: Snowflakeey@2025
+      role: ACCOUNTADMIN
+      schema: BRONZE
+      threads: 1
+      type: snowflake
+      user: PAVANSAI
+      warehouse: COMPUTE_WH      
   target: dev

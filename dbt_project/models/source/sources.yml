@@ -1,6 +1,6 @@
 sources:
   - name: source
-    database: dbt_project_dev  
+    database: '{{ target.database }}'
     schema: source  
     tables:
       - name: dim_customer

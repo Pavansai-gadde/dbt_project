@@ -7,9 +7,9 @@ models:
   - name: bronze_sampledata_2
     config:
       materialized: table 
-  - name: bronze_customers
+  - name: bronze_customer
     columns:
-      - name: '"customer_id"'
+      - name: '"customer_sk"'
         data_tests:
           - unique
           - not_null
