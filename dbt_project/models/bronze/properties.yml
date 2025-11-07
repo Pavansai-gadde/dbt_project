@@ -13,6 +13,12 @@ models:
         data_tests:
           - unique
           - not_null
+      - name: '"email"'
+        data_tests:
+          - user_email_regex
+      - name: '"phone"'
+        data_tests:
+          - user_mobile_regex
   - name: bronze_stores
     columns:
       - name: '"store_sk"'

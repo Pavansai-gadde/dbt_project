@@ -40,8 +40,16 @@ models:
       +materialized: table
     gold:
       +schema: gold
+      +materialized: table    
+    landing:
+      +schema: landing
+      +materialized: table  
+    raw:
+      +schema: raw
+      +materialized: table  
+    init:
+      +schema: init
       +materialized: table
 seeds:
   dbt_project:
     +schema: bronze
-    
