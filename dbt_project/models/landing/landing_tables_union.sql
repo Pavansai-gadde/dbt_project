@@ -1,8 +1,8 @@
 {{ config(
-    materialized='ephemeral'
+    materialized='view'
 ) }}
 
-{{ landing_tables_union(
+{{ landing_union_macro(
     landing_models=[
         'landing_synd1',
         'landing_synd2',
@@ -10,4 +10,4 @@
     ],
     unique_key='ID',
     order_by_col='FIVETRAN_TIMESTAMP'
-) }}
+) }} 

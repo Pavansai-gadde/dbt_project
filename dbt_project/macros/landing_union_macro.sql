@@ -1,4 +1,4 @@
-{% macro landing_tables_union(landing_models,unique_key, order_by_col) %}
+{% macro landing_union_macro(landing_models,unique_key, order_by_col) %}
 {% set column_names = generate_column_names(landing_models[0]) %}
 
 with union_data as (
@@ -16,4 +16,4 @@ select {{ column_names }} from (
 )
  where rn = 1
 order by {{ unique_key }} 
-{% endmacro %}
+{% endmacro %}  
