@@ -18,7 +18,7 @@ dbt_project:
       database: DBT_PROJECT_DEV
       password: Snowflakeey@2025
       role: ACCOUNTADMIN
-      schema: BRONZE
+      schema: LANDING
       threads: 1
       type: snowflake
       user: PAVANSAI
@@ -28,7 +28,7 @@ dbt_project:
       database: DBT_PROJECT_PROD
       password: Snowflakeey@2025
       role: ACCOUNTADMIN
-      schema: BRONZE
+      schema: LANDING
       threads: 1
       type: snowflake
       user: PAVANSAI

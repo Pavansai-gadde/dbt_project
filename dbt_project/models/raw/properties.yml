@@ -44,7 +44,17 @@ models:
           - unique
           - not_null      
 
+  - name: raw_sales
+    tests:
+      
+      # ✅ TC_01 — Schema Validation
+      - row_count_check:
+          compare_model: source('landing', 'landing_sales')
 
-
+      # ✅ TC_03 — Primary Key Completeness 
+      - pk_completeness:
+          compare_model: source('landing', 'landing_sales')
+          key: SalesOrderNumber
+          variant_key: true
 
  
