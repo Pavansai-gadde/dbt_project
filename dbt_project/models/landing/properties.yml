@@ -1,0 +1,19 @@
+version: 2
+
+models:
+
+  - name: landing_sales_inferred_vw
+    tests:
+      # ✅ TC_01 — Schema Validation
+      - schema_matches_inferred:
+          json_location: '@azure_stage/onlinesales_20140126.json'
+          file_format: 'JSON_FORMAT' 
+
+
+    columns:
+      - name: 'SALESORDERNUMBER'
+        data_tests:
+          - unique
+          - not_null      
+
+ 
