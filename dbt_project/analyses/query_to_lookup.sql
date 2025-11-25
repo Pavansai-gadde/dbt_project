@@ -1,1 +1,1 @@
-select * from {{ ref('customers_lookup')}}
+select * from {{ this.name }}

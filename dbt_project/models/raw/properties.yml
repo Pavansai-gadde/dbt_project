@@ -2,51 +2,62 @@ version: 2
 
 models:
 
-  - name: raw_synd
+  - name: raw_synd 
     tests:
       # ✅ TC_01 — Schema Validation
       - column_set_match:
+          tags: ['preload','schema_validation']
           compare_model: ref('landing_tables_union')    
 
       # ✅ TC_02 — Data Type Validation
       - datatype_match:
+          tags: ['preload','schema_validation']
           compare_model: ref('landing_tables_union')  
 
       # ✅ TC_03 — Primary Key Completeness 
       - pk_completeness:
+          tags: ['postload','recon_tests']
           compare_model: ref('landing_tables_union')  
           key: ID
 
       # ✅ TC_04 — Null Ratio Consistency
       - null_ratio_diff:
+          tags: ['postload','data_quality']
           compare_model: ref('landing_tables_union')  
           column: UNIT_PRICE
           threshold: 0.05     
 
       # ✅ TC_05 — Row Count Validation
       - row_count_check:
+          tags: ['postload','recon_tests']
           compare_model: ref('landing_tables_union')      
 
       # ✅ TC_06 — Aggregation Validation
       - aggregation_validation:
+          tags: ['postload','recon_tests']
           compare_model: ref('landing_tables_union')  
           column_name: UNIT_PRICE
 
       # ✅ TC_06 — Field-Level Comparison
       - field_value_match:
+          tags: ['postload','recon_tests']
           compare_model: ref('landing_tables_union')  
           by_key: ID
           columns: [ITEM]
 
     columns:
       - name: 'id'
+        tags: ['postload','data_quality']
         data_tests:
           - unique
           - not_null      
 
-  - name: raw_sales
+  - name: raw_sales_vw
     tests:
-      
+
+      - column_check_variant:
+          compare_model: source('landing', 'landing_sales')
+
       # ✅ TC_01 — Schema Validation
       - row_count_check:
           compare_model: source('landing', 'landing_sales')
@@ -57,4 +68,9 @@ models:
           key: SalesOrderNumber
           variant_key: true
 
+      # ✅ TC_06 — Aggregation Validation
+      - aggregation_validation:
+          compare_model: source('landing', 'landing_sales')
+          column_name: SalesAmount
+          variant_key: true
  

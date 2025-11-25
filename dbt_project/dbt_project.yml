@@ -20,7 +20,6 @@ snapshot-paths: ["snapshots"]
 
 clean-targets:         # directories to be removed by `dbt clean`
   - "target"
-  - "dbt_packages"
 
 
 # Configuring models
@@ -47,9 +46,21 @@ models:
     raw:
       +schema: raw
       +materialized: table  
+    curated:
+      +schema: raw
+      +materialized: table  
+    error_capture:
+      +schema: raw
+      +materialized: table              
     init:
       +schema: init
       +materialized: table
 seeds:
   dbt_project:
     +schema: bronze
+
+tests:
+  dbt_project:
+    +store_failures: true
+
+on-run-end: "{{ log_test_results(results) }}"

@@ -18,8 +18,16 @@ sources:
     tables:
       - name: landing_sales
       - name: landing_sales_inferschema
+      - name: landing_orders
+      - name: customers
   - name: raw
     database: '{{ target.database }}'       
     schema: raw  
     tables:
-      - name: raw_sales         
+      - name: raw_sales       
+  - name: config
+    database: '{{ target.database }}'       
+    schema: config  
+    tables:
+      - name: dq_rules       
+        
