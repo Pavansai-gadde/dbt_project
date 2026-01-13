@@ -20,6 +20,7 @@ sources:
       - name: landing_sales_inferschema
       - name: landing_orders
       - name: customers
+      - name: customers_v2
   - name: raw
     database: '{{ target.database }}'       
     schema: raw  
@@ -29,5 +30,10 @@ sources:
     database: '{{ target.database }}'       
     schema: config  
     tables:
-      - name: dq_rules       
+      - name: dq_rules    
+  - name: config
+    database: '{{ target.database }}'       
+    schema: config  
+    tables:
+      - name: dq_rules_v2            
         

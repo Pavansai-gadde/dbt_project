@@ -2,7 +2,8 @@
 
 with raw_orders as (
 
-    select order_id,
+    select raw_order_seq.nextval as raw_orders_id,
+order_id,
 customer_id,
 coalesce(try_to_date(order_date,'YYYY-MM-DD'),
 try_to_date(order_date,'YYYY/MM/DD'),

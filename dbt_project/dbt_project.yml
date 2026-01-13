@@ -40,27 +40,18 @@ models:
     gold:
       +schema: gold
       +materialized: table    
-    landing:
-      +schema: landing
-      +materialized: table  
     raw:
       +schema: raw
-      +materialized: table  
-    curated:
-      +schema: raw
-      +materialized: table  
-    error_capture:
-      +schema: raw
       +materialized: table              
-    init:
-      +schema: init
-      +materialized: table
+data_tests:
+  dbt_project:
+    +database: dbt_project
+    +schema: raw
+
 seeds:
   dbt_project:
     +schema: bronze
 
-tests:
-  dbt_project:
-    +store_failures: true
 
-on-run-end: "{{ log_test_results(results) }}"
+
+#on-run-end: "{{ log_test_results(results) }}"

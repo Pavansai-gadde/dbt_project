@@ -6,7 +6,7 @@
 {% if execute %}
     -- Get rules for given model 
     {% set result = run_query("select rule_expression,rule_name
-from dbt_project_dev.config.dq_rules
+from dbt_project_dev.config.dq_rules_v0
 where model_name = '"~ model_name_up ~ "' and is_active=TRUE ")
      %}
 

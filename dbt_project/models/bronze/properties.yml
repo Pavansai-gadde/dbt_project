@@ -11,12 +11,8 @@ models:
     columns:
       - name: '"customer_sk"'
         data_tests:      
-          - unique :
-              severity: error
-              store_failures: true                
-          - not_null:
-              severity: error
-              store_failures: true             
+          - unique               
+          - not_null            
 
       - name: '"email"'
         data_tests:

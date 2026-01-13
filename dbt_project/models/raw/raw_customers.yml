@@ -1,0 +1,14 @@
+version: 2
+
+models:
+
+  - name: raw_customers 
+    config:
+      tags: ['customers']
+    tests:
+      - dq_checks_test:
+          arguments:
+            model_name: raw_customers
+            layer_name: raw 
+          config:
+            tags: ['dq_checks']            

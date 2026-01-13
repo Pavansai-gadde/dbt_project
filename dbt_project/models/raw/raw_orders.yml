@@ -3,22 +3,21 @@ version: 2
 models:
 
   - name: raw_orders 
+    config:
+      tags: ['orders']
     tests:
- 
-      # ✅ TC_05 — Row Count Validation
-      - row_count_check:
-          tags: ['postload','recon_tests']
-          compare_model: source('landing', 'landing_orders')   
-
-      # ✅ TC_05 — Aggregation Validation
-      - aggregation_validation:
-          tags: ['postload','recon_tests']
-          compare_model: source('landing', 'landing_orders')   
-          column_name: AMOUNT
+      - dq_checks_test:
+          arguments:
+            model_name: raw_orders
+            layer_name: raw   
+          config:
+            tags: ['dq_checks']  
 
     columns:
       - name: 'order_id'
         tags: ['postload','data_quality']
         data_tests:
           - unique
-          - not_null      
+          - not_null    
+
+           
