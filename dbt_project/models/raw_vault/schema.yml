@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: hub_customers 
+    tags: 
+        - hub
+  - name: hub_orders
+    tags: ["hub"]
+    
+  - name: sat_customers 
+    tags: ["sat","dv"]
+
+  - name: sat_customers_nhs 
+    tags: ["sat","dv_2"]
+
+  - name: sat_customers_rts 
+    tags: ["sat","dv_2"]
+     
+  - name: link_orders_customers 
+    tags: ["link","dv"]
+
+  - name: link_orders_customers_nhl 
+    tags: ["link","dv_2"]
+   
+  - name: link_crm_customers_sal
+    tags: ["link","dv_2"]
+        
+        

@@ -42,7 +42,16 @@ models:
       +materialized: table    
     raw:
       +schema: raw
-      +materialized: table              
+      +materialized: table  
+    raw_stage:
+      +schema: data_vault
+      +materialized: view          
+    stage:
+      +schema: data_vault
+      +materialized: view  
+    raw_vault:
+      +schema: data_vault
+              
 data_tests:
   dbt_project:
     +database: dbt_project
